@@ -285,8 +285,8 @@ margin: 10px 0;
 
 .login-section {
 
-  padding: 40px 30px;
-
+  padding: 40px 10px;
+  justify-items: center;
 }
 
 .login-input-field input{
@@ -307,8 +307,5 @@ text-align: center;
 
   margin-top: 20px;
 }
-
-
-
 
 }
