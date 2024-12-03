@@ -63,8 +63,9 @@ const LoginForm = () => {
             value={formData.email}
             onChange={handleChange}
           />
-          {errors.email && <p className="login-error">{errors.email}</p>}
+          
         </div>
+        {errors.email && <p className="login-error">{errors.email}</p>}
         <div className="login-input-field icon-input">
           <FaLock className="login-input-icon" />
           <input

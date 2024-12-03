@@ -93,10 +93,10 @@ const ShoppingCart = ({ setShowShoppingCart }) => {
           </div>
           <div className="payment-summary">
             <p>
-              Subtotal <span>${subtotal.toFixed(2)}</span>
+            Subtotal <span>${subtotal ? subtotal.toFixed(2) : '0.00'} </span>
             </p>
             <p>
-              Shipping <span>${shippingCost.toFixed(2)}</span>
+              Shipping <span>${shippingCost  ?  shippingCost.toFixed(2) : '0.00'}</span>
             </p>
             <p>
               <strong>Total (Tax incl.)</strong> <span>${total.toFixed(2)}</span>

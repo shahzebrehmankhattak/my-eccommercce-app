@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState,useEffect } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
 import { logout } from '../../features/userSlice';
 import { useNavigate } from 'react-router-dom';
 import { FaHome, FaBox, FaBell, FaChartLine, FaWarehouse, FaSignOutAlt, FaBars } from 'react-icons/fa';
@@ -8,6 +8,9 @@ import './Dashboard.css';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state?.user?.user); 
+
+
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(true);
   const [activeLink, setActiveLink] = useState('Dashboard');
@@ -26,6 +29,27 @@ const Sidebar = () => {
       setActiveLink(linkName);
     }
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setIsOpen(false);
+      } else {
+        setIsOpen(true);
+      }
+    };
+
+    // Initial check on component mount
+    handleResize();
+
+    // Add resize event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   
 
   return (
@@ -36,8 +60,8 @@ const Sidebar = () => {
       <div className="profile">
         <img src={userProfileImage} alt="Profile" className="profile-pic" />
         <div className="profile-info">
-          <p className="profile-name">Mark Wood</p>
-          <p className="profile-email">marki@demo.com</p>
+          <p className="profile-name">{user?.name}</p>
+          <p className="profile-email">{user?.email}</p>
         </div>
       </div>
       <nav className="nav-links">

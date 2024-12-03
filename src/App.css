@@ -157,8 +157,8 @@
 .login-error {
   color: red;
   font-size: 12px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+
+  margin-bottom: 10px;
   text-align: center;
 }
 
@@ -183,7 +183,6 @@
 .login-input-field input {
   flex: 1;
   padding: 12px;
-  padding-left: 40px;
   border: none;
   outline: none;
   border-radius: 25px;
@@ -232,4 +231,84 @@
 
 p {
   margin: unset;
+}
+
+/* media queries */
+
+@media only screen and (max-width: 768px) {
+  .registration-account-text{
+    margin: 10px 0;
+  }
+
+
+  .login-input-field input{
+    padding: 12px;
+  }
+  .login-account-text{
+    margin: 5px 0px;
+  
+  }
+  .login-forgot-link{
+    margin: 8px 0px;
+    text-align: center;
+    
+    }
+    .login-error{
+
+      margin-top: 2px;
+  margin-bottom: 5px;
+  text-align: center;
+    }
+    .login-input-field {
+margin-bottom: 10px;
+
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+.welcome-section{
+display: none;
+}
+.registration-account-text{
+margin: 10px 0;
+
+}
+.registration-section {
+
+  padding: 35px;
+}
+
+.login-input-field {
+  width: unset;
+}
+
+.login-section {
+
+  padding: 40px 30px;
+
+}
+
+.login-input-field input{
+  padding: 12px;
+}
+
+.login-forgot-link{
+margin: 8px 0px;
+text-align: center;
+
+}
+.login-account-text{
+  margin: 5px 0px;
+
+}
+
+.login-link-btn {
+
+  margin-top: 20px;
+}
+
+
+
+
 }
