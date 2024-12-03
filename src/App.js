@@ -1,24 +1,46 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import WelcomeSection from './components/WelcomeSection';
+import RegistrationForm from './components/SignUp';
+import Login from './components/LoginForm';
+import Dashboard from './components/Dashboard/DashboardMain'
 import './App.css';
+
+
+const AuthLayout = ({ children }) => {
+  return (
+    <div className="App">
+      <div className="container">
+        {children}
+      </div>
+    </div>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route 
+          path="/" 
+          element={
+            <AuthLayout>
+              <WelcomeSection />
+              <RegistrationForm />
+            </AuthLayout>
+          } 
+        />
+        <Route 
+          path="/login" 
+          element={
+            <AuthLayout>
+              <WelcomeSection />
+              <Login />
+            </AuthLayout>
+          } 
+        />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
 
